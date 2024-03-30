@@ -5,9 +5,9 @@ class Solution:
         ret = []
         while(leftptr <= rightptr):
             if abs(nums[rightptr])>abs(nums[leftptr]):
-                ret.insert(0, nums[rightptr]**2)
+                ret.append(nums[rightptr]**2)
                 rightptr-=1
             else:
-                ret.insert(0, nums[leftptr]**2)
+                ret.append(nums[leftptr]**2)
                 leftptr+=1
-        return ret
+        return [ret[i] for i in range(len(ret)-1, -1, -1)]
