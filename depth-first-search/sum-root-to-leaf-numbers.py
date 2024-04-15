@@ -9,8 +9,9 @@ class Solution:
         def recur(node, num):
             if node==None:
                 return 0
+            new = num*10 + node.val
             if node.left ==None and node.right==None:
-                return num*10 + node.val
-            return recur(node.left, num*10 + node.val) + recur(node.right, num*10 + node.val)
+                return new
+            return recur(node.left, new) + recur(node.right, new)
         return recur(root, 0)
         
