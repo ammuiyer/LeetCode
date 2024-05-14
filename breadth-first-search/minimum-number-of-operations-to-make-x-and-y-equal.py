@@ -2,7 +2,7 @@ class Solution:
     def minimumOperationsToMakeEqual(self, x: int, y: int) -> int:
         #do bfs w a q
         q = [(x, 0)]
-        visited = {}
+        visited = set()
         while True:
             #do all ops on a thing 
             curr, layer = q.pop(0)
@@ -16,7 +16,7 @@ class Solution:
                 q.append((curr-1, layer+1))
             if curr+1 not in visited:
                 q.append((curr+1, layer+1))
-            visited[curr] = 1
+            visited.add(curr)
         
             
             
