@@ -12,7 +12,7 @@ class Solution:
         for i in range(v):
             curr = min(d.keys())
             for j in range(groupSize):
-                if curr not in d or d[curr]==0:
+                if curr not in d:
                     return False
                 d[curr]-=1
                 if d[curr]==0:
