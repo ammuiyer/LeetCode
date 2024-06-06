@@ -8,10 +8,11 @@ class Solution:
                 d[x] = 1
             else:
                 d[x]+=1
-        for i in range(len(hand)//groupSize):
+        v = len(hand)//groupSize
+        for i in range(v):
             curr = min(d.keys())
             for j in range(groupSize):
-                if curr not in d:
+                if curr not in d or d[curr]==0:
                     return False
                 d[curr]-=1
                 if d[curr]==0:
