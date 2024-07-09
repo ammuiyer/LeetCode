@@ -1,23 +1,18 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
-        if len(height) < 3:
-            return 0
-        total_water = 0
-        left = 0
-        right = len(height) - 1
-        max_left = height[left]
-        max_right = height[right]
-        while (left < right):
-            if (max_left <= max_right):
-                if max_left - height[left] > 0:
-                    total_water += max_left - height[left]
-                left += 1
-                max_left = max(max_left, height[left])
+        lmax, rmax = 0, len(height)-1
+        total = 0
+        leftmax, rightmax = height[lmax], height[rmax]
+        while (lmax < rmax):
+            if height[lmax]<=height[rmax]:
+                lmax+=1
+                leftmax = max(leftmax, height[lmax])
+                if height[lmax]<min(leftmax, rightmax):
+                    total+=min(leftmax, rightmax) - height[lmax]
             else:
-                if max_right - height[right] > 0:
-                    total_water += max_right - height[right]
-                right -= 1
-                max_right = max(max_right, height[right])
-        
-        return total_water
-        
+                rmax-=1
+                rightmax = max(rightmax, height[rmax])
+                if height[rmax]<min(leftmax, rightmax):
+                    total+=min(leftmax, rightmax) - height[rmax]
+            print(lmax, rmax, total)
+        return total
