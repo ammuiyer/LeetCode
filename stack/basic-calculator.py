@@ -60,6 +60,6 @@ class Solution:
         #print(stack)
         if len(stack)==1:
             return int(stack[0])
-        print(stack)
+        #print(stack)
         return int(ev("".join(stack)))
         
