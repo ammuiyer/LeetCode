@@ -17,5 +17,6 @@ class Solution:
                     recur(c)
                     ret.append(c.val)
         recur(root)
-        ret.append(root.val)
+        if root:
+            ret.append(root.val)
         return ret
