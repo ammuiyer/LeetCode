@@ -4,20 +4,21 @@ class Solution:
         q = []
         q.append([start_node, 1])
         visited = set()
-        visited.add(start_node)
         ma = 0
         while q:
-            print(q)
+            #print(q)
             currnode, currweight = q.pop(0)
             if currnode==end_node:
                 ma = max(ma, currweight)
             else:
                 for i in range(0, len(edges)):
                     edge = edges[i]
-                    if edge[0] == currnode:
+                    if edge[0] == currnode and edge[0] not in visited:
                         q.append([edge[1], currweight*(succProb[i])])
-                            #q.sort(key=lambda x:x[1])
-                           
+                    if edge[1] == currnode and edge[1] not in visited:
+                        q.append([edge[0], currweight*(succProb[i])])
+            visited.add(currnode)
+                    
                             
         return ma
                 
