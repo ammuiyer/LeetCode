@@ -3,10 +3,10 @@ class Solution:
         new = 0
         p = 1
         for x in s:
-            new += (ord(x)-96)*p
+            new = new*p + (ord(x)-96)
             p*=10
 
-        #print(new)
+
         ret = 0
         for i in range(k):
             ret = 0
