@@ -1,12 +1,12 @@
 class Solution:
     def getLucky(self, s: str, k: int) -> int:
-        new = 0
-        p = 1
+        new = ""
         for x in s:
-            new = new*p + (ord(x)-96)
-            p*=10
+            #print((ord(x)-96))
+            new += str(ord(x)-96)
 
-
+        #print(new)
+        new = int(new)
         ret = 0
         for i in range(k):
             ret = 0
