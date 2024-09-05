@@ -11,6 +11,13 @@ class Solution:
             # print(goal, a, rem)
             for i in range(n):
                 ret.append(a)
-            ret[0]+=rem
+            x = 0
+            while rem>0:
+                if ret[x]<6:
+                    ret[x]+=1
+                x+=1
+                rem-=1
+            
+                
         return ret
         
