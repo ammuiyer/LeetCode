@@ -9,6 +9,8 @@ class Solution:
             a = goal//n
             rem = goal - a*n
             # print(goal, a, rem)
+            if a == 0:
+                return []
             for i in range(n):
                 ret.append(a)
             x = 0
