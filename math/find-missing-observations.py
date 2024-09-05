@@ -3,7 +3,7 @@ class Solution:
         ret = []
         currsum = sum(rolls)
         goal = (mean*(len(rolls)+n)-currsum)
-        if goal/6 > n:
+        if goal/6 > n or goal<0:
             return []
         else:
             a = goal//n
