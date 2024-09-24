@@ -1,9 +1,14 @@
 class Solution:
     def longestCommonPrefix(self, arr1: List[int], arr2: List[int]) -> int:
         ma = 0
+        d = {}
+        d["0"] = []
+        d["0"] = []
+        d["0"] = []
         for i in list(set(arr1)):
             for j in list(set(arr2)):
                 a = str(i)
+                d[a[0]].append(a)
                 b = str(j)
                 count = 0
                 for x,y in zip(a,b):
