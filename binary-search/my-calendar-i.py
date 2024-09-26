@@ -9,12 +9,7 @@ class MyCalendar:
         self.intervals.sort(key = lambda x:x[0])
         for i in range(0, len(self.intervals)):
             # print(self.intervals[i])
-            if self.intervals[i][0]>start:
-                if i!=0 and self.intervals[i-1][1]>start:
-                        return False
-                if i==0 and self.intervals[i][0]<end:
-                    return False
-            if self.intervals[i][1]>start:
+            if  (end > self.intervals[i][0] and start < self.intervals[i][1]):
                 return False
 
 
