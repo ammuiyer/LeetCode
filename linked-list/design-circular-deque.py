@@ -36,10 +36,16 @@ class MyCircularDeque:
         
 
     def getFront(self) -> int:
-        return self.q[0]
+        if len(self.q)>0:
+            return self.q[0]
+        else:
+            return -1 
 
     def getRear(self) -> int:
-        return self.q[-1]
+        if len(self.q)>0:
+            return self.q[-1]
+        else:
+            return -1 
         
 
     def isEmpty(self) -> bool:
