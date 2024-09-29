@@ -1,53 +1,37 @@
 class AllOne:
-
+    count={}
+    max=""
+    
     def __init__(self):
-        self.max = ""
-        self.maxcount = 0
-        self.min = ""
-        self.mincount = 100000
-        self.strings = {}
+        self.count={}
         
-
     def inc(self, key: str) -> None:
-        if key in self.strings:
-            self.strings[key]+=1
-            if self.strings[key]>self.strings[self.max]:
-                self.maxcount = self.strings[key]
-                self.max = key
-            if self.strings[key]==self.strings[self.min]:
-                self.min = ""
-            if len(self.strings)==1:
-                self.min = key
+        if key in self.count:
+            self.count[key]+=1
+            if self.count[key]>self.count[self.max]:
+                self.max=key
         else:
-            self.strings[key]=1  
+            self.count[key]=1
             if self.max=="":
-                self.max = key
-                self.maxcount = 1 
-            if self.min=="":
-                self.min = key
-                self.mincount = 1
-            if self.strings[self.min]>1:
-                self.min = key
-
+                self.max=key
 
     def dec(self, key: str) -> None:
-        self.strings[key]-=1
-        if self.strings[key]==0:
-            del self.strings[key]
+        self.count[key]-=1
+        if self.count[key]==0:
+            del self.count[key]
             if key==self.max:
                 self.max=""
-        else: 
+        else:
             if key==self.max:
-                self.max = ""
-        
+                self.max=max(zip(self.count.values(), self.count.keys()))[1]
 
     def getMaxKey(self) -> str:
         return self.max
-        
 
     def getMinKey(self) -> str:
-        return self.min
-        
+        if not self.count:
+            return ""
+        return min(zip(self.count.values(), self.count.keys()))[1]
 
 
 # Your AllOne object will be instantiated and called as such:
